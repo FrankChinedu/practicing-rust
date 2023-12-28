@@ -1,31 +1,28 @@
-use std::{
-    cell::RefCell,
-    rc::{Rc, Weak},
-};
-
 fn main() {
-    let leaf = Rc::new(Node {
-        value: 3,
-        parent: RefCell::new(Weak::new()),
-        children: RefCell::new(vec![]),
-    });
+    let mut head = Node {
+        value: 1,
+        next: None,
+    };
 
-    println!("leaf parent {:?}", leaf.parent.borrow().upgrade());
+    let next = Node {
+        next: None,
+        value: 2,
+    };
 
-    let branch = Rc::new(Node {
-        value: 5,
-        parent: RefCell::new(Weak::new()),
-        children: RefCell::new(vec![]),
-    });
+    head.set_next(next);
 
-    *leaf.parent.borrow_mut() = Rc::downgrade(&branch);
-
-    println!("leaf parent {:?}", leaf.parent.borrow().upgrade());
+    println!("{:?}", head);
 }
 
 #[derive(Debug)]
-struct Node {
-    value: i32,
-    parent: RefCell<Weak<Node>>,
-    children: RefCell<Vec<Rc<Node>>>,
+#[allow(dead_code)]
+struct Node<T> {
+    value: T,
+    next: Option<Box<Node<T>>>,
+}
+
+impl<T> Node<T> {
+    fn set_next(&mut self, next: Node<T>) {
+        self.next = Some(Box::new(next));
+    }
 }
