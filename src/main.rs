@@ -1,28 +1,14 @@
-fn main() {
-    let mut head = Node {
-        value: 1,
-        next: None,
-    };
+pub mod builder_pattern;
+pub mod myfs;
 
-    let next = Node {
-        next: None,
-        value: 2,
-    };
+use builder_pattern::*;
 
-    head.set_next(next);
-
-    println!("{:?}", head);
-}
-
-#[derive(Debug)]
-#[allow(dead_code)]
-struct Node<T> {
-    value: T,
-    next: Option<Box<Node<T>>>,
-}
-
-impl<T> Node<T> {
-    fn set_next(&mut self, next: Node<T>) {
-        self.next = Some(Box::new(next));
-    }
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let _worker = WorkerBuilder::new()
+        .keep_alive(true)
+        .memsize(256 * 1024)
+        .keep_alive(false)
+        .workload("workload")
+        .keep_alive(false);
+    Ok(())
 }

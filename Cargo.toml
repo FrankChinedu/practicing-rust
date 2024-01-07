@@ -11,7 +11,3 @@ default-run = "practicing-rust"
 [[bin]]
 name = "ref"
 path = "src/bin/ref.rs"
-
-[[bin]]
-name = "linked-list"
-path = "src/bin/linked-list.rs"
