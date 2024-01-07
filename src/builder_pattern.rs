@@ -11,6 +11,16 @@ pub struct WorkerBuilder<W> {
 
 pub struct NoWorkload;
 
+impl Default for WorkerBuilder<NoWorkload> {
+    fn default() -> Self {
+        Self {
+            workload: NoWorkload,
+            memsize: Default::default(),
+            keep_alive: Default::default(),
+        }
+    }
+}
+
 impl WorkerBuilder<NoWorkload> {
     pub fn new() -> Self {
         Self {
