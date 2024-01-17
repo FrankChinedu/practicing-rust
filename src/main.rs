@@ -1,14 +1,9 @@
 pub mod builder_pattern;
 pub mod myfs;
+pub mod vec;
 
-use builder_pattern::*;
+use vec::run;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let _worker = WorkerBuilder::new()
-        .keep_alive(true)
-        .memsize(256 * 1024)
-        .keep_alive(false)
-        .workload("workload")
-        .keep_alive(false);
-    Ok(())
+fn main() {
+    run();
 }
