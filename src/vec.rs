@@ -7,5 +7,6 @@ pub fn run() {
 }
 
 fn display(vec: &[u8]) {
+    // vec
     println!("{:?}", vec)
 }

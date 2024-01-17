@@ -1,9 +1,11 @@
 pub mod builder_pattern;
+pub mod from;
 pub mod myfs;
 pub mod vec;
 
-use vec::run;
+use from::UpperCase;
 
 fn main() {
-    run();
+    let name = UpperCase::from(String::from("frank"));
+    println!("{:?}", name.0);
 }
