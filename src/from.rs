@@ -6,3 +6,8 @@ impl From<String> for UpperCase {
         Self(value.to_uppercase())
     }
 }
+
+pub fn main() {
+    let name = UpperCase::from(String::from("frank"));
+    println!("{:?}", name.0);
+}

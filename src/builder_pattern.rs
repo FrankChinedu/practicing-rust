@@ -66,7 +66,7 @@ impl<W> WorkerBuilder<W> {
     }
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     let _worker = WorkerBuilder::new()
         .keep_alive(true)
         .memsize(256 * 1024)
