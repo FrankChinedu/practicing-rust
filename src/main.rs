@@ -4,8 +4,8 @@ pub mod from;
 pub mod myfs;
 pub mod vec;
 
-use closure::main as closure;
+use closure::thread;
 
 fn main() {
-    closure()
+    thread()
 }
