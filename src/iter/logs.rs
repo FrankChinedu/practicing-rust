@@ -29,7 +29,7 @@ impl TryFrom<&str> for ApacheLogEntry {
 
     fn try_from(value: &str) -> Result<Self, Self::Error> {
         let (client_ip, rest) = value
-            .split_once(" ")
+            .split_once(' ')
             .ok_or(format!("failed to parse ip address from {}", value))?;
 
         let client_ip = client_ip.to_owned();
@@ -68,7 +68,7 @@ impl TryFrom<&str> for ApacheLogEntry {
         let rest = rest.trim();
 
         let (status, size) = rest
-            .split_once(" ")
+            .split_once(' ')
             .ok_or(format!("failed to parse status and size from {}", rest))?;
 
         let status_code = status
