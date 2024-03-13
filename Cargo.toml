@@ -7,6 +7,9 @@ default-run = "practicing-rust"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+itertools = "0.10"
+chrono = { version = "0.4", features = ["serde"] }
+regex = "1"
 
 [[bin]]
 name = "ref"

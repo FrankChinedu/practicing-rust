@@ -2,10 +2,13 @@ pub mod builder_pattern;
 pub mod closure;
 pub mod from;
 pub mod myfs;
+pub mod strings;
 pub mod vec;
 
-use closure::thread;
+pub mod iter;
+
+use iter::main as run;
 
 fn main() {
-    thread()
+    run();
 }

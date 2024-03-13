@@ -18,5 +18,5 @@ pub fn thread() {
         Err(_) => println!("Error occured"),
     }
 
-    println!("waiting");
+    println!("waiting")
 }
