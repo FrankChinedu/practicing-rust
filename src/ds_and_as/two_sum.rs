@@ -1,25 +1,22 @@
+use std::collections::HashMap;
+
 pub struct Solution;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut vec: Vec<i32> = vec![];
+        let mut hash = HashMap::new();
 
-        'first: for (i, num) in nums.iter().enumerate() {
-            if i + 1 == nums.len() {
-                break;
-            };
+        for (i, num) in nums.iter().enumerate() {
+            let num = *num;
+            let complement = target - num;
 
-            for (j, other) in nums.iter().enumerate() {
-                if i == j {
-                    continue;
-                }
-                let res = num + other;
-                if res == target {
-                    vec.push(i as i32);
-                    vec.push((j) as i32);
-                    break 'first;
-                }
+            if let Some(item) = hash.get(&complement) {
+                println!("item {}", item);
+                vec.push(i as i32);
+                vec.push(*item);
             }
+            hash.insert(num, i as i32);
         }
         vec
     }
