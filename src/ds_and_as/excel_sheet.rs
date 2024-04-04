@@ -1,5 +1,39 @@
 pub struct Solution;
 
+fn get_number_array(column_number: usize, alpahbet_size: usize) -> Vec<usize> {
+    let mut arr_num = vec![];
+
+    if column_number <= alpahbet_size {
+        return vec![column_number];
+    }
+
+    let alpahbet_size = alpahbet_size as f64;
+    let mut column_number = column_number as f64;
+
+    loop {
+        let modulus = (column_number % alpahbet_size) as usize;
+        if alpahbet_size >= column_number {
+            arr_num.insert(0, column_number as usize);
+            break;
+        }
+        arr_num.insert(0, modulus);
+        column_number = (column_number / alpahbet_size).floor();
+    }
+    arr_num
+}
+
+fn get_alphabet(alphabet: Vec<char>, arr_of_nums: Vec<usize>) -> String {
+    let mut arr_of_char = vec![];
+
+    for num in arr_of_nums {
+        let index = num - 1;
+        let d = alphabet.get(index).unwrap();
+        let output = format!("{}", d);
+        arr_of_char.push(output);
+    }
+    arr_of_char.join("")
+}
+
 impl Solution {
     pub fn convert_to_title(column_number: i32) -> String {
         let column_number = column_number as usize;
@@ -11,27 +45,9 @@ impl Solution {
         }
         let size_of_alphabet = alphabet.len();
 
-        if size_of_alphabet >= column_number {
-            let index = column_number - 1;
-            let d = alphabet.get(index).unwrap();
-            let output = format!("{}", d);
-            return output;
-        }
+        let arr = get_number_array(column_number, size_of_alphabet);
 
-        let index = (column_number as f64 / size_of_alphabet as f64).floor() as usize - 1;
-
-        // let
-        let char = alphabet.get(index).unwrap();
-        let char = format!("{}", char);
-        let mut alp_arr = vec![];
-        alp_arr.push(char);
-
-        let index = (column_number % size_of_alphabet) - 1;
-        let char = alphabet.get(index).unwrap();
-        let char = format!("{}", char);
-        alp_arr.push(char);
-
-        alp_arr.join("")
+        get_alphabet(alphabet, arr)
     }
 }
 

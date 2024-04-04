@@ -12,7 +12,7 @@ use ds_and_as::excel_sheet::Solution;
 // use iter::main as run;
 
 fn main() {
-    let res = Solution::convert_to_title(28);
+    let res = Solution::convert_to_title(701);
 
     dbg!(&res);
 }
