@@ -7,15 +7,12 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::two_sum::Solution;
+use ds_and_as::excel_sheet::Solution;
 
 // use iter::main as run;
 
 fn main() {
-    let nums = vec![2, 11, 7, 15];
-    let target = 9;
-
-    let res = Solution::two_sum(nums, target);
+    let res = Solution::convert_to_title(28);
 
     dbg!(&res);
 }
