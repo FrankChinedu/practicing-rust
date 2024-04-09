@@ -11,10 +11,14 @@ fn get_number_array(column_number: usize, alpahbet_size: usize) -> Vec<usize> {
     let mut column_number = column_number as f64;
 
     loop {
-        let modulus = (column_number % alpahbet_size) as usize;
+        let mut modulus = (column_number % alpahbet_size) as usize;
         if alpahbet_size >= column_number {
             arr_num.insert(0, column_number as usize);
             break;
+        }
+        if modulus == 0 {
+            modulus = 26;
+            column_number -= 1.0;
         }
         arr_num.insert(0, modulus);
         column_number = (column_number / alpahbet_size).floor();
@@ -46,6 +50,7 @@ impl Solution {
         let size_of_alphabet = alphabet.len();
 
         let arr = get_number_array(column_number, size_of_alphabet);
+        dbg!(&arr);
 
         get_alphabet(alphabet, arr)
     }
@@ -92,6 +97,14 @@ mod tests {
         let column_number = 701;
         let result = Solution::convert_to_title(column_number);
         let val = String::from("ZY");
+        assert_eq!(result, val);
+    }
+
+    #[test]
+    fn simple_column_number_for_6() {
+        let column_number = 52;
+        let result = Solution::convert_to_title(column_number);
+        let val = String::from("AZ");
         assert_eq!(result, val);
     }
 }
