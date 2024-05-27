@@ -7,12 +7,14 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::palindrome::Solution;
+use ds_and_as::haystack::Solution;
 
 // use iter::main as run;
 
 fn main() {
-    let res = Solution::is_palindrome(-121);
+    let haystack = String::from("leetcode");
+    let needle = String::from("leeto");
+    let res = Solution::str_str(haystack, needle);
 
     dbg!(&res);
 }
