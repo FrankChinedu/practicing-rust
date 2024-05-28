@@ -7,14 +7,16 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::haystack::Solution;
+use ds_and_as::search_insert_position::Solution;
 
 // use iter::main as run;
 
 fn main() {
-    let haystack = String::from("leetcode");
-    let needle = String::from("leeto");
-    let res = Solution::str_str(haystack, needle);
+    let nums = vec![1];
+    let target = 0;
+    // let nums = vec![1, 3, 6, 7];
+    // let target = 5;
+    let res = Solution::search_insert(nums, target);
 
     dbg!(&res);
 }
