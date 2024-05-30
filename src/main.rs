@@ -7,16 +7,13 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::search_insert_position::Solution;
+use ds_and_as::plus_one::Solution;
 
 // use iter::main as run;
 
 fn main() {
-    let nums = vec![1];
-    let target = 0;
-    // let nums = vec![1, 3, 6, 7];
-    // let target = 5;
-    let res = Solution::search_insert(nums, target);
+    let digits = vec![1, 2, 3];
+    let res = Solution::plus_one(digits);
 
     dbg!(&res);
 }
