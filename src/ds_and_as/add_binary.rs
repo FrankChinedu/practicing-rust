@@ -1,6 +1,6 @@
 pub struct Solution;
 
-fn binary_to_decimal(binary: &str) -> u32 {
+fn _binary_to_decimal(binary: &str) -> u32 {
     let mut decimal = 0;
     for (i, c) in binary.chars().rev().enumerate() {
         let digit = c.to_digit(2).expect("Invalid binary string");
@@ -9,7 +9,7 @@ fn binary_to_decimal(binary: &str) -> u32 {
     decimal
 }
 
-fn convert_to_binary(val: u32) -> String {
+fn _convert_to_binary(val: u32) -> String {
     let mut remainder = "".to_string();
     let mut current_val = val as f64;
 
@@ -28,10 +28,11 @@ fn convert_to_binary(val: u32) -> String {
 
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
-        let a = binary_to_decimal(&a);
-        let b = binary_to_decimal(&b);
+        let a = u128::from_str_radix(&a, 2).expect("Invalid binary number");
+        let b = u128::from_str_radix(&b, 2).expect("Invalid binary number");
+
         let ans = a + b;
-        convert_to_binary(ans)
+        format!("{:b}", ans)
     }
 }
 
