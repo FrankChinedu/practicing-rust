@@ -1,3 +1,4 @@
+pub mod add_binary;
 pub mod buy_tickets;
 pub mod excel_sheet;
 pub mod haystack;

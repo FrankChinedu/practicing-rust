@@ -7,13 +7,14 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::plus_one::Solution;
+use ds_and_as::add_binary::Solution;
 
 // use iter::main as run;
 
 fn main() {
-    let digits = vec![1, 2, 3];
-    let res = Solution::plus_one(digits);
+    let a = "1010".to_string();
+    let b = "1011".to_string();
+    let res = Solution::add_binary(a, b);
 
     dbg!(&res);
 }
