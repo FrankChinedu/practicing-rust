@@ -12,8 +12,10 @@ use ds_and_as::add_binary::Solution;
 // use iter::main as run;
 
 fn main() {
-    let a = "1010".to_string();
-    let b = "1011".to_string();
+    // let a = "1010".to_string();
+    // let b = "1011".to_string();
+    let a = "100".to_string();
+    let b = "110010".to_string();
     let res = Solution::add_binary(a, b);
 
     dbg!(&res);

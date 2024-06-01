@@ -26,13 +26,70 @@ fn _convert_to_binary(val: u32) -> String {
     remainder
 }
 
+fn add(val: Vec<String>) -> Vec<String> {
+    let val = val
+        .iter()
+        .map(|x| u128::from_str_radix(x, 2).expect("Invalid binary number"))
+        .collect::<Vec<_>>();
+    let ans = val.iter().sum::<u128>();
+    let mut val = format!("{:b}", ans);
+    if val.len() == 1 {
+        val = format!("0{val}");
+    }
+    val.split("")
+        .filter(|x| !x.is_empty())
+        .map(|x| x.to_owned())
+        .collect::<Vec<_>>()
+}
+
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
-        let a = u128::from_str_radix(&a, 2).expect("Invalid binary number");
-        let b = u128::from_str_radix(&b, 2).expect("Invalid binary number");
+        let mut big = "".to_string();
+        let mut small = "".to_string();
+        if a.len() > b.len() {
+            big = a;
+            small = b;
+        } else {
+            big = b;
+            small = a;
+        }
 
-        let ans = a + b;
-        format!("{:b}", ans)
+        let mut num = "0".to_string();
+        let mut item = "".to_string();
+        let a = big;
+        let b = small;
+        println!("a {a}");
+        println!("b {b}");
+        let b = b.chars().rev().collect::<String>();
+
+        for (i, val) in a.chars().rev().enumerate() {
+            let temp_num = num.clone().to_string();
+            let mut vec = vec![val.to_string(), temp_num];
+            match b.chars().nth(i) {
+                Some(x) => {
+                    let x = x.to_string();
+                    vec.push(x);
+                    let res = add(vec);
+                    let last = res.last().unwrap().to_string();
+                    let first = res.first().unwrap().to_string();
+                    item = format!("{item}{last}");
+                    num = first;
+                }
+                None => {
+                    let res = add(vec);
+                    let last = res.last().unwrap().to_string();
+                    let first = res.first().unwrap().to_string();
+                    item = format!("{item}{last}");
+                    num = first;
+                }
+            }
+        }
+        println!("item {item}");
+        item = item.chars().rev().collect::<String>();
+        if num == *"1" {
+            item = format!("{num}{item}");
+        }
+        item
     }
 }
 
