@@ -7,16 +7,13 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::add_binary::Solution;
+use ds_and_as::sqrt::Solution;
 
 // use iter::main as run;
 
 fn main() {
-    // let a = "1010".to_string();
-    // let b = "1011".to_string();
-    let a = "100".to_string();
-    let b = "110010".to_string();
-    let res = Solution::add_binary(a, b);
+    let x = 8;
+    let res = Solution::my_sqrt(x);
 
     dbg!(&res);
 }

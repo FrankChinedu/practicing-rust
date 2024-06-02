@@ -5,4 +5,5 @@ pub mod haystack;
 pub mod palindrome;
 pub mod plus_one;
 pub mod search_insert_position;
+pub mod sqrt;
 pub mod two_sum;
