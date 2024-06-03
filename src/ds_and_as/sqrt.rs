@@ -1,21 +1,24 @@
 pub struct Solution;
 
+const MAX_X: u32 = 2147483647;
 impl Solution {
     pub fn my_sqrt(x: i32) -> i32 {
-        let mut left = 0;
-        let mut right = x;
-        while left <= right {
-            let mid = ((left + right) as f64 / 2_f64).floor() as i32;
+        let mut low = 0u32;
+        let mut high = MAX_X;
+        loop {
+            let i: u32 = (high + low) / 2;
+            let a = i * i <= x as u32;
+            let b = (i + 1) * (i + 1) > x as u32;
 
-            if (mid * mid) < x {
-                left = mid + 1;
-            } else if (mid * mid) > x {
-                right = mid - 1
+            if a && b {
+                return i as i32;
+            }
+            if a {
+                low = i;
             } else {
-                return mid;
+                high = i;
             }
         }
-        right
     }
 }
 
