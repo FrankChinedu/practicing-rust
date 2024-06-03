@@ -1,5 +1,6 @@
 pub mod add_binary;
 pub mod buy_tickets;
+pub mod climb_stairs;
 pub mod excel_sheet;
 pub mod haystack;
 pub mod palindrome;

@@ -7,13 +7,13 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::sqrt::Solution;
+use ds_and_as::climb_stairs::Solution;
 
 // use iter::main as run;
 
 fn main() {
-    let x = 8;
-    let res = Solution::my_sqrt(x);
+    let x = 4;
+    let res = Solution::climb_stairs(x);
 
     dbg!(&res);
 }
