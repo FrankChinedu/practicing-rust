@@ -7,13 +7,12 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::climb_stairs::Solution;
-
-// use iter::main as run;
+use ds_and_as::same_tree::{get_tree_from_slice, Solution};
 
 fn main() {
-    let x = 4;
-    let res = Solution::climb_stairs(x);
+    let p = get_tree_from_slice(Vec::from([1, 2, 3]));
+    let q = get_tree_from_slice(Vec::from([1, 2, 3]));
+    let res = Solution::is_same_tree(p, q);
 
     dbg!(&res);
 }

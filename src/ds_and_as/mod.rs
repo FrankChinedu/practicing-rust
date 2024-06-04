@@ -5,6 +5,7 @@ pub mod excel_sheet;
 pub mod haystack;
 pub mod palindrome;
 pub mod plus_one;
+pub mod same_tree;
 pub mod search_insert_position;
 pub mod sqrt;
 pub mod two_sum;
