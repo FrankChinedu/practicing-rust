@@ -1,10 +1,10 @@
-use std::borrow::BorrowMut;
+use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::rc::Rc;
 
 pub struct Solution;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TreeNode {
     pub val: i32,
     pub left: Option<Rc<RefCell<TreeNode>>>,
@@ -20,13 +20,11 @@ pub fn get_tree_from_slice(slice: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
     let mut tree: TreeNode = TreeNode::new(first);
     let arr_slice = &slice[1..];
     for (i, val) in arr_slice.iter().enumerate() {
-        let sub_tree = Rc::new(RefCell::new(TreeNode::new(*val)));
+        let sub_tree = Some(Rc::new(RefCell::new(TreeNode::new(*val))));
         if i % 2 == 0 {
-            let left = tree.left.borrow_mut();
-            left.replace(sub_tree);
+            tree.borrow_mut().left = sub_tree;
         } else {
-            let right = tree.right.borrow_mut();
-            right.replace(sub_tree);
+            tree.borrow_mut().right = sub_tree;
         }
     }
 
@@ -49,7 +47,7 @@ impl Solution {
         p: Option<Rc<RefCell<TreeNode>>>,
         q: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
-        true
+        p == q
     }
 }
 
