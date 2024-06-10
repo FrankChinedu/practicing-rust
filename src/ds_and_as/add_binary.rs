@@ -44,20 +44,20 @@ fn add(val: Vec<String>) -> Vec<String> {
 
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
-        let mut big = "".to_string();
-        let mut small = "".to_string();
+        let mut _big = "".to_string();
+        let mut _small = "".to_string();
         if a.len() > b.len() {
-            big = a;
-            small = b;
+            _big = a;
+            _small = b;
         } else {
-            big = b;
-            small = a;
+            _big = b;
+            _small = a;
         }
 
         let mut num = "0".to_string();
         let mut item = "".to_string();
-        let a = big;
-        let b = small;
+        let a = _big;
+        let b = _small;
         println!("a {a}");
         println!("b {b}");
         let b = b.chars().rev().collect::<String>();

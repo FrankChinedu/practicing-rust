@@ -3,6 +3,7 @@ pub mod buy_tickets;
 pub mod climb_stairs;
 pub mod excel_sheet;
 pub mod haystack;
+pub mod link_list_duplicate;
 pub mod palindrome;
 pub mod plus_one;
 pub mod same_tree;
