@@ -7,13 +7,10 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::merge_array::Solution;
+use ds_and_as::remove_duplicates_array::Solution;
 
 fn main() {
-    let mut num1 = Vec::from([-1, 0, 0, 3, 3, 3, 0, 0, 0]);
-    let mut num2 = Vec::from([1, 2, 2]);
-    let m = 6;
-    let n = 3;
-    Solution::merge(&mut num1, m, &mut num2, n);
+    let mut nums = Vec::from([1, 1, 2]);
+    Solution::remove_duplicates(&mut nums);
     // dbg!(&res);
 }
