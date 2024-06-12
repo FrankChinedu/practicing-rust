@@ -4,6 +4,10 @@ pub struct Solution;
 
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        nums.dedup();
+        nums.len() as i32
+    }
+    pub fn remove_duplicates1(nums: &mut Vec<i32>) -> i32 {
         let mut map: HashSet<i32> = HashSet::new();
         let mut k = 0;
 
