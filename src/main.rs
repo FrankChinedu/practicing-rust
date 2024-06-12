@@ -10,7 +10,7 @@ pub mod iter;
 use ds_and_as::remove_duplicates_array::Solution;
 
 fn main() {
-    let mut nums = Vec::from([1, 1, 2]);
+    let mut nums = Vec::from([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
     Solution::remove_duplicates(&mut nums);
     // dbg!(&res);
 }

@@ -5,18 +5,18 @@ pub struct Solution;
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
         let mut map: HashSet<i32> = HashSet::new();
-        let k = nums
-            .iter()
-            .filter(|x| {
-                if !map.contains(x) {
-                    map.insert(**x);
-                    return true;
-                }
-                false
-            })
-            .collect::<Vec<_>>();
+        let mut k = 0;
 
-        k.len() as i32
+        for i in 0..nums.len() {
+            let x = nums[i - k];
+            if !map.contains(&x) {
+                map.insert(x);
+            } else {
+                nums.remove(i - k);
+                k += 1;
+            }
+        }
+        nums.len() as i32
     }
 }
 
