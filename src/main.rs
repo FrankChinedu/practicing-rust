@@ -7,10 +7,14 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::binary_inorder_traversal::{get_tree_from_slice, Solution};
+use ds_and_as::matrix_zero::Solution;
 
 fn main() {
-    let strs = Vec::from([2, 5, 1, 6, 7]);
-    let res = get_tree_from_slice(strs);
-    dbg!(&res);
+    let mut matrix = Vec::from([
+        Vec::from([1, 1, 1]),
+        Vec::from([1, 0, 1]),
+        Vec::from([1, 1, 1]),
+    ]);
+    Solution::set_zeroes(&mut matrix);
+    // dbg!(&res);
 }

@@ -6,6 +6,7 @@ pub mod excel_sheet;
 pub mod haystack;
 pub mod link_list_duplicate;
 pub mod longest_prefix;
+pub mod matrix_zero;
 pub mod merge_array;
 pub mod palindrome;
 pub mod plus_one;
