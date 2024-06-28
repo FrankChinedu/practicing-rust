@@ -7,10 +7,10 @@ pub mod strings;
 pub mod vec;
 
 pub mod iter;
-use ds_and_as::remove_duplicates_array::Solution;
+use ds_and_as::binary_inorder_traversal::{get_tree_from_slice, Solution};
 
 fn main() {
-    let mut nums = Vec::from([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
-    Solution::remove_duplicates(&mut nums);
-    // dbg!(&res);
+    let strs = Vec::from([2, 5, 1, 6, 7]);
+    let res = get_tree_from_slice(strs);
+    dbg!(&res);
 }
