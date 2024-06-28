@@ -1,5 +1,26 @@
 pub struct Solution;
 
+impl Solution {
+    pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
+        let directions = [UP, DOWN, LEFT, RIGHT];
+        let mut vec: Vec<(usize, usize)> = vec![];
+        for (i, item) in matrix.iter().enumerate() {
+            for (j, val) in item.iter().enumerate() {
+                if val == &0 {
+                    vec.push((i, j))
+                }
+            }
+        }
+
+        for tuple in vec {
+            for dir in &directions {
+                let tup = (tuple.0 as i32, tuple.1 as i32);
+                move_mat(dir, tup, matrix)
+            }
+        }
+    }
+}
+
 #[derive(Debug)]
 enum Direction {
     Up { x: i32, y: i32 },
@@ -53,27 +74,6 @@ fn move_mat(dir: &Direction, tup: (i32, i32), matrix: &mut Vec<Vec<i32>>) {
     let tup = (tup_x, tup_y);
     matrix[tup.0 as usize][tup.1 as usize] = 0;
     move_mat(dir, tup, matrix)
-}
-
-impl Solution {
-    pub fn set_zeroes(matrix: &mut Vec<Vec<i32>>) {
-        let directions = [UP, DOWN, LEFT, RIGHT];
-        let mut vec: Vec<(usize, usize)> = vec![];
-        for (i, item) in matrix.iter().enumerate() {
-            for (j, val) in item.iter().enumerate() {
-                if val == &0 {
-                    vec.push((i, j))
-                }
-            }
-        }
-
-        for tuple in vec {
-            for dir in &directions {
-                let tup = (tuple.0 as i32, tuple.1 as i32);
-                move_mat(dir, tup, matrix)
-            }
-        }
-    }
 }
 
 #[cfg(test)]
