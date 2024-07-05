@@ -11,6 +11,7 @@ pub mod merge_array;
 pub mod palindrome;
 pub mod plus_one;
 pub mod remove_duplicates_array;
+pub mod rotate_image;
 pub mod same_tree;
 pub mod search_insert_position;
 pub mod sqrt;
